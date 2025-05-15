@@ -1,6 +1,9 @@
 /*Start Variable*/
 :root{
     --main-color: #10cab7;
+    --section-padding: 60px;
+    --section-background: #f6f6f6;
+    --secondary-color: #2c4755;
 }
 /*End Variable*/
 /*Start Global Rules*/
@@ -8,6 +11,10 @@
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
+}
+html
+{
+    scroll-behavior: smooth;
 }
 
 body {
@@ -56,6 +63,31 @@ body {
     }
 } 
 /* End Global Rules */
+/* Start Component  */
+.special-heading{
+color: #ebeced;
+font-size: 100px;
+font-weight: 800;
+text-align: center;
+margin: 0;
+letter-spacing:-3px ;
+}
+.special-heading + p{
+   margin: -30px 0 0;
+    text-align: center;
+    font-size: 20px;
+    color: #797979;
+}
+@media (max-width: 767px) {
+    .special-heading{
+        font-size: 60px;
+    }
+    .special-heading + p{
+        margin-top: -20px;
+        font-size: 15px;
+    }
+}
+/* End Component  */
 /*Start Header*/
 .header {
   padding: 20px;  
@@ -66,7 +98,7 @@ body {
         align-items: center;
 }
 .header .container .logo{
-  width: 90px;
+  width: 60px;
 }
 .header .links{
     position: relative;
@@ -111,7 +143,7 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #f6f6f6;
+    background-color: var(--section-background);
     position: absolute;
     right: 0;
     min-width: 200px;
@@ -124,7 +156,7 @@ body {
     content: " ";
     border-width: 10px;
     border-style: solid;
-    border-color: transparent transparent #f6f6f6 transparent;
+    border-color: transparent transparent var(--section-background) transparent;
     position: absolute;
     right: 5px;
     top: -19px;
@@ -179,9 +211,9 @@ border-bottom: 1px solid #ddd;
 /*End Home Section*/
  /*Start Education Section*/
 .education {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    background-color: #f6f6f6;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
 }
 .education .container{
   display: grid;
@@ -206,3 +238,262 @@ border-bottom: 1px solid #ddd;
  color: #777;
 }
  /*End Education Section*/
+ /* Start Skills Section  */
+ .skills{
+     padding-top:var(--section-padding);
+    padding-bottom: var(--section-padding);
+ }
+ .skills .skills-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 70px;
+    margin-top: 100px;
+ }
+ .skills .skills-content .skill {
+    display: flex;
+    margin-bottom: 40px;
+ }
+ @media (max-width: 767px) {
+    .skills .skills-content .skill {
+        flex-direction: column;
+        text-align: center;
+    }
+   
+}
+.skills .skills-content .skill i{
+    font-size: 35px;
+    color: var(--main-color);
+    flex-basis:60px ;
+}
+.skills .skills-content .skill .text{
+flex: 1;
+}
+.skills .skills-content .skill .text h3{
+   margin: 0 0 20px;
+}
+.skills .skills-content .skill .text p{
+    color: #777;
+    font-weight: 300;
+    line-height: 1.8;
+}
+ .skill ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+    color: #777;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.skill ul li {
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--main-color); /* or any accent color */
+}
+@media (max-width: 767px) {
+     .skill ul li::before{
+        content: "";
+    }
+}
+ /* End Skills Section  */
+  /* Start Projects Section  */
+  .projects{
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color:var(--section-background) ;
+}
+.projects .projects-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 80px;
+}
+.projects .projects-content a {
+    text-decoration: none;
+    color: #000;
+}
+.projects .projects-content .card{
+    background-color: white;
+}
+.projects .projects-content .card img{
+    width: 100%;
+    height: 300px;
+ 
+  
+}
+.projects .projects-content .info{
+    padding: 20px;  
+}
+.projects .projects-content .card h3{
+    font-size: 20px;
+    margin: 0 ;
+}
+.projects .projects-content .card p{
+    color: #777;
+    /* font-weight: 300; */
+    line-height: 1.8;
+    margin: 0;
+}
+  /* End Projects Section  */
+  /* Start About Section  */
+    .about{
+        padding-top: var(--section-padding);
+        padding-bottom: calc(var(--section-padding) + 50px);
+       
+    }
+    .about .about-content{
+        margin-top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    @media (max-width: 991px) {
+        .about .about-content{
+            flex-direction: column;
+           text-align: center;
+        }
+    }
+    .about .about-content .image{
+       position: relative;
+       width: 250px;
+         height: 375px;
+    }
+    .about .about-content .image::before{
+        content: " ";
+        position: absolute;
+        background-color: #ebeced;
+        width: 100px;
+        height:calc(100% + 80px); 
+        top: -40px;
+        left: -15px;
+        z-index: -1;
+
+    }
+    .about .about-content .image::after{
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 300px;
+        border-left: 80px solid var(--main-color);
+
+        border-bottom: 80px solid  var(--main-color);
+        z-index: -1;
+        right: -150px;
+         top: -40px;
+
+    }
+     @media (max-width: 991px){
+    .about .about-content .image::after,
+    .about .about-content .image::before{
+        display:none;
+     }
+    }
+    .about .about-content .image img{
+        width: 100%;
+       
+    }
+    .about .about-content .text{
+        /* text-align: center; */
+        flex-basis: calc(100% - 550px);
+        /* position: relative; */
+       
+    }
+    .about .about-content .text p{
+        font-weight: bold;
+        line-height: 1.8;
+        margin-bottom: 50px;
+
+    }
+    .about .about-content .text hr{
+        width: 50%;
+        display: inline-block;
+        border-color: var(--main-color);
+    }
+    .about .about-content .text button{
+      display: block;
+      color: white;
+      background-color: var(--secondary-color)   ;
+      border: none;
+      border-radius: 5px;
+        padding: 20px 30px;
+        ;
+        /* position: absolute;
+
+        left: 30%; */
+    }
+    .about .about-content .text button a{
+        text-decoration: none;
+        color: white;
+        font-weight: 800;
+        font-size: 20px;
+    }
+  /* End About Section  */
+  /* Start Contact Section  */
+    .contact{
+        padding-top: var(--section-padding);
+        padding-bottom: var(--section-padding);
+        background-color: var(--section-background);
+    }
+    .contact .info{
+       padding-top: var(--section-padding);
+        padding-bottom: var(--section-padding);
+        text-align: center;
+    }
+    .contact .info .label{
+        font-size: 35px;
+        font-weight: 800;
+        color: var(--secondary-color);
+        letter-spacing: -2px;
+        margin-bottom: 15px;
+    }
+    .contact .info .link{
+      display: block;
+      font-size: 35px;
+      font-weight: 800;
+        color: var(--main-color);
+        text-decoration: none;
+
+    }
+    .contact .info .social{
+      display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    .contact .info .social i{
+       margin-left: 10px; 
+       color: var(--secondary-color);
+    }
+    @media (max-width: 767px) {
+        .contact .info .label,
+         .contact .info .link{
+            font-size:25px ; 
+        }
+    }
+  /* End Contact Section  */
+  /* Start Footer Section  */
+  .footer{
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 30px 10px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .footer span{
+    font-weight: bold;
+    color: var(--main-color);
+  }
+  @media (max-width: 767px) {
+    .footer{
+        font-size: 15px;
+        padding: 20px 10px;
+    }   
+}
+  /* End Footer Section  */
